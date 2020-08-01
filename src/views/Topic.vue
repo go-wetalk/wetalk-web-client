@@ -103,6 +103,7 @@
             <p class="control">
               <b-input
                 type="textarea"
+                ref="reply"
                 placeholder="Add a comment..."
                 v-model.trim="formData.content"
               ></b-input>
@@ -201,6 +202,8 @@ export default {
       this.formData.topicId = this.topic.ID;
       this.formData.replyTo = comment.ID;
       this.formData.content = `@${comment.User.Name} `;
+      const reply = this.$refs.reply.$el;
+      reply.scrollIntoView && reply.scrollIntoView();
     },
   },
 };
