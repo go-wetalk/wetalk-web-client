@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build --modern",
+    "lint": "vue-cli-service lint",
+    "generate": "node_modules/.bin/vue-asset-generate -a src/assets/logo.png -o public/img/icons"
   },
   "dependencies": {
     "buefy": "^0.8.20",
@@ -36,6 +37,7 @@
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
     "vue-cli-plugin-buefy": "^0.3.7",
+    "vue-pwa-asset-generator": "^1.2.1",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

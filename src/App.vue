@@ -38,7 +38,7 @@
         <b-navbar-item tag="div" v-else>
           <div class="buttons">
             <a class="button is-primary" @click="openAuthModal">
-              <strong>Getting Started</strong>
+              <strong>Join Us</strong>
             </a>
           </div>
         </b-navbar-item>
@@ -149,7 +149,7 @@ $colors: (
   // "twitter": (
     //   $twitter,
     //   $twitter-invert,
-    // ),,,,,,
+    // ),,,,,,,
 );
 
 // Links
