@@ -1,35 +1,31 @@
 <template>
-  <div class="container" v-if="topic">
-    <section class="section">
-      <div v-if="topic" class="card is-shadowless has-background-white">
-        <div class="card-head">
-          <h1 class="title is-size-3">
-            {{ topic.Title }}
-          </h1>
-          <div class="card-meta">
-            <div class="card-meta-author is-size-5">
-              <router-link :to="{ path: '/users/' + topic.User.Name }">
-                {{ topic.User.Name }}
-              </router-link>
-            </div>
-            <div class="card-meta-time is-size-7">
-              发布于 {{ topic.Created }}
-            </div>
+  <div class="container fix-margin-collapse" v-if="topic">
+    <div v-if="topic" class="card gap-mt-1 has-background-white">
+      <div class="card-head">
+        <h1 class="title">
+          {{ topic.Title }}
+        </h1>
+        <div class="card-meta">
+          <div class="card-meta-author is-size-5">
+            <router-link :to="{ path: '/users/' + topic.User.Name }">
+              {{ topic.User.Name }}
+            </router-link>
           </div>
-        </div>
-        <div class="card-content">
-          <div class="content wysiwyg" v-html="topic.Content"></div>
-        </div>
-        <div class="card-foot">
-          标签：
-          <b-taglist>
-            <b-tag type="is-info" v-for="tag in topic.Tags" :key="tag">
-              {{ tag }}
-            </b-tag>
-          </b-taglist>
+          <div class="card-meta-time is-size-7">发布于 {{ topic.Created }}</div>
         </div>
       </div>
-    </section>
+      <div class="card-content">
+        <div class="content wysiwyg" v-html="topic.Content"></div>
+      </div>
+      <div class="card-foot">
+        标签：
+        <b-taglist>
+          <b-tag type="is-info" v-for="tag in topic.Tags" :key="tag">
+            {{ tag }}
+          </b-tag>
+        </b-taglist>
+      </div>
+    </div>
     <section class="section">
       <div class="subtitle is-uppercase">Recently Comments</div>
       <section
@@ -81,7 +77,7 @@
           <div class="content wysiwyg" v-html="com.Content"></div>
         </div>
       </article>
-      <div class="container gap-mt-1">
+      <div class="container gap-mt-1" v-if="commentRowCount > commentPageSize">
         <b-pagination
           :total="commentRowCount"
           :per-page="commentPageSize"

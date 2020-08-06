@@ -1,12 +1,12 @@
 <template>
   <div id="app" class="has-background-white-ter" v-cloak>
-    <b-navbar fixed-top>
+    <b-navbar fixed-top shadow>
       <template slot="brand">
         <b-navbar-item tag="router-link" :to="{ path: '/' }">
-          <img src="@/assets/logo.png" alt="DevTo.icu" />
+          {{ VUE_APP_NAME }}
         </b-navbar-item>
       </template>
-      <template slot="start">
+      <!-- <template slot="start">
         <b-navbar-item href="/">
           Home
         </b-navbar-item>
@@ -21,24 +21,24 @@
             Contact
           </b-navbar-item>
         </b-navbar-dropdown>
-      </template>
+      </template> -->
 
       <template slot="end">
         <b-navbar-item tag="div" v-if="profile">
           <div class="username">
-            <span>Logged as</span>
+            <span>你好，</span>
             <router-link :to="'/users/' + profile.Name">
               {{ profile.Name }}
             </router-link>
           </div>
           <button class="button is-primary" @click="openPostModal">
-            Write Post
+            写点啥
           </button>
         </b-navbar-item>
         <b-navbar-item tag="div" v-else>
           <div class="buttons">
             <a class="button is-primary" @click="openAuthModal">
-              <strong>Join Us</strong>
+              <strong>加入奋斗</strong>
             </a>
           </div>
         </b-navbar-item>
@@ -48,6 +48,14 @@
     <transition>
       <router-view />
     </transition>
+
+    <footer class="footer gap-mt-1">
+      <div class="content has-text-centered">
+        <strong>奋斗社 devto.icu</strong>
+        <br />
+        版权所有，盗版必杀你🐎
+      </div>
+    </footer>
 
     <b-loading is-full-page :active="loading"></b-loading>
   </div>
@@ -59,7 +67,7 @@ import PostModalVue from "./components/PostModal.vue";
 import AuthModalVue from "./components/AuthModal.vue";
 export default {
   computed: {
-    ...mapState(["profile", "loading"]),
+    ...mapState(["VUE_APP_NAME", "profile", "loading"]),
     ...mapGetters(["isLoggedIn"]),
   },
   created() {
@@ -99,16 +107,7 @@ export default {
 @import "~bulma/sass/utilities/_all";
 
 // Set your colors
-// $primary: hsl(171, 100%, 41%);
-// $primary-invert: findColorInvert($primary);
-// $info: hsl(204, 71%, 53%);
-// $info-invert: findColorInvert($info);
-// $twitter: #4099ff;
-// $twitter-invert: findColorInvert($twitter);
-// $link: hsl(217, 71%, 53%);
-// $link-invert: findColorInvert($link);
 
-// Setup $colors to use as bulma classes (e.g. 'is-twitter')
 $colors: (
   "white": (
     $white,
@@ -146,45 +145,12 @@ $colors: (
     $danger,
     $danger-invert,
   ),
-  // "twitter": (
-    //   $twitter,
-    //   $twitter-invert,
-    // ),,,,,,,
 );
-
-// Links
-// $link: $link;
-// $link-invert: $link-invert;
-// $link-focus-border: $link;
 
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
 
-#app {
-  font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica,
-    "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB",
-    "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN",
-    "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti",
-    SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
-  min-height: 100vh;
-  --webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: auto;
-
-  .username {
-    margin-right: 1rem;
-  }
-
-  .gaparound {
-    margin: 1rem;
-  }
-  .gap-mt-1 {
-    margin-top: 1rem;
-  }
-  .gap-mb-1 {
-    margin-bottom: 1rem;
-  }
-}
 [v-cloak] {
   display: none;
 }
@@ -194,5 +160,41 @@ $colors: (
 .wysiwyg kbd,
 .wysiwyg samp {
   word-break: break-all;
+}
+
+html {
+  overflow-y: auto !important;
+}
+html,
+body {
+  height: 100%;
+  --webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica,
+    "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB",
+    "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN",
+    "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti",
+    SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+}
+
+#app {
+  min-height: 100%;
+
+  .username {
+    margin-right: 1rem;
+  }
+  .gaparound {
+    margin: 1rem;
+  }
+  .gap-mt-1 {
+    margin-top: 1rem;
+  }
+  .gap-mb-1 {
+    margin-bottom: 1rem;
+  }
+  .container.fix-margin-collapse {
+    margin-top: -1px;
+    padding-top: 1px;
+  }
 }
 </style>

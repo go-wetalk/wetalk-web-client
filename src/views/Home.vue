@@ -1,74 +1,84 @@
 <template>
-  <div class="container">
-    <div class="columns">
-      <div class="column is-10 is-offset-1">
-        <section class="section">
-          <div
-            class="media has-background-white"
-            v-for="topic in topicPageData"
-            :key="topic.ID"
-          >
-            <figure class="media-left">
-              <p class="image is-48x48">
-                <img :src="topic.User.Logo" />
-              </p>
-            </figure>
-            <div class="media-content">
-              <div class="content is-size-6">
-                <router-link
-                  :to="{ name: 'JoinTopic', params: { topicId: topic.ID } }"
-                >
-                  {{ topic.Title }}
-                </router-link>
-              </div>
-              <div class="level is-mobile">
-                <div class="level-left">
-                  <div class="level-item is-size-7">
+  <div class="container fix-margin-collapse">
+    <div class="card has-media-stack gap-mt-1" v-if="topicPageData.length > 0">
+      <div class="card-header">
+        <div class="card-header-title">主题列表</div>
+      </div>
+      <div class="card-content">
+        <div
+          class="media has-background-white"
+          v-for="topic in topicPageData"
+          :key="topic.ID"
+        >
+          <figure class="media-left is-hidden-mobile">
+            <p class="image is-48x48">
+              <img :src="topic.User.Logo" />
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <router-link
+                :to="{ name: 'JoinTopic', params: { topicId: topic.ID } }"
+              >
+                {{ topic.Title }}
+              </router-link>
+            </div>
+            <div class="level is-mobile">
+              <div class="level-left">
+                <div class="level-item">
+                  <sub>
                     <router-link :to="{ path: '/users/' + topic.User.Name }">
                       {{ topic.User.Name }}
                     </router-link>
-                  </div>
-                  <div class="level-item is-size-7" v-if="topic.LastComment">
-                    最后由
-                  </div>
-                  <div class="level-item is-size-7" v-if="topic.LastComment">
+                  </sub>
+                </div>
+                <div class="level-item" v-if="topic.LastComment">
+                  <sub>最后由</sub>
+                </div>
+                <div class="level-item" v-if="topic.LastComment">
+                  <sub>
                     <router-link :to="'/users/' + topic.LastComment.User.Name">
                       {{ topic.LastComment.User.Name }}
                     </router-link>
-                  </div>
-                  <div class="level-item is-size-7" v-if="topic.LastComment">
-                    回复于 {{ topic.LastComment.Created }}
-                  </div>
-                  <div class="level-item is-size-7" v-else>
-                    发布于 {{ topic.Created }}
-                  </div>
-                  <div class="level-item is-size-7" v-if="topic.Tags">
-                    <b-taglist>
-                      <b-tag
-                        type="is-primary"
-                        v-for="tag in topic.Tags"
-                        :key="tag"
-                      >
-                        {{ tag }}
-                      </b-tag>
-                    </b-taglist>
-                  </div>
+                  </sub>
+                </div>
+                <div class="level-item" v-if="topic.LastComment">
+                  <sub>回复于 {{ topic.LastComment.Created }}</sub>
+                </div>
+                <div class="level-item" v-else>
+                  <sub>发布于 {{ topic.Created }}</sub>
+                </div>
+              </div>
+              <div class="level-right is-hidden-mobile" v-if="topic.Tags">
+                <div class="level-item">
+                  <b-taglist>
+                    <b-tag
+                      type="is-primary"
+                      v-for="tag in topic.Tags"
+                      :key="tag"
+                    >
+                      {{ tag }}
+                    </b-tag>
+                  </b-taglist>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-        <div class="section">
-          <b-pagination
-            :total="rowCount"
-            :per-page="pageSize"
-            :current="currentPageNumber"
-            @change="onChangePage"
-            icon-prev="arrow-left-s-line"
-            icon-next="arrow-right-s-line"
-          ></b-pagination>
         </div>
       </div>
+    </div>
+    <section class="section has-text-centered" v-else>
+      <strong>还没有主题，等你抢第一哟</strong>
+    </section>
+    <div class="section" v-if="rowCount > pageSize">
+      <b-pagination
+        :total="rowCount"
+        :per-page="pageSize"
+        :current="currentPageNumber"
+        @change="onChangePage"
+        icon-prev="arrow-left-s-line"
+        icon-next="arrow-right-s-line"
+      ></b-pagination>
     </div>
   </div>
 </template>
@@ -112,12 +122,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.app {
-  background: #fff;
-  margin: 2rem auto;
-  border-radius: 0.4rem;
-  box-shadow: 0 0 0.5rem rgba($color: #000000, $alpha: 0.1);
-}
 .section + .section {
   padding-top: 0;
 }
@@ -140,5 +144,21 @@ export default {
 }
 .media + .media {
   margin-top: 0;
+}
+.columns {
+  margin: 0 !important;
+}
+.tags .tag {
+  margin-bottom: 0;
+  font-size: 0.5em;
+  height: fit-content;
+}
+.card.has-media-stack {
+  .card-content {
+    padding: 0.5rem 0 0;
+  }
+  .media {
+    margin: 0;
+  }
 }
 </style>

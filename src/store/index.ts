@@ -42,6 +42,7 @@ interface PublishCommentInput {
 }
 
 interface State {
+  VUE_APP_NAME: string;
   token: string;
   profile?: Record<string, any>;
   topics: Array<TopicListPage>;
@@ -54,6 +55,7 @@ interface State {
 
 export default new Vuex.Store({
   state: {
+    VUE_APP_NAME: process.env.VUE_APP_NAME,
     token: localStorage.getItem('__token') || '',
     profile: undefined,
     topics: [],
