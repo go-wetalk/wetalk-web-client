@@ -14,6 +14,8 @@ RUN yarn && yarn lint && yarn build
 
 FROM nginx:1.19-alpine
 
+RUN sed -i '10s/.*/        try_files \$uri \$uri\/ \/index.html;/' /etc/nginx/conf.d/default.conf # fix vue-router history mode.
+
 COPY --from=rushb /app/dist/ /usr/share/nginx/html
 
 EXPOSE 80
