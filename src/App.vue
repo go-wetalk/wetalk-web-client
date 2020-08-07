@@ -15,7 +15,7 @@
           <b-navbar-item tag="router-link" :to="'/users/' + profile.Name">
             个人中心
           </b-navbar-item>
-          <b-navbar-item>注销</b-navbar-item>
+          <b-navbar-item tag="div" @click="onLogout">注销</b-navbar-item>
         </b-navbar-dropdown>
       </template>
       <template slot="end" v-else>
@@ -63,7 +63,16 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["FetchUserProfile"]),
+    ...mapActions(["FetchUserProfile", "Logout"]),
+    onLogout() {
+      this.Logout().then(() => {
+        this.$buefy.toast.open({
+          type: "is-success",
+          message: "已注销登录",
+        });
+        this.$router.push({ name: "Home" });
+      });
+    },
   },
 };
 </script>

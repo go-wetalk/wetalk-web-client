@@ -97,7 +97,7 @@
             <b-field>
               <div class="buttons">
                 <button class="button is-primary" @click="onSignUp">
-                  确定
+                  确定成为奋斗者
                 </button>
               </div>
             </b-field>

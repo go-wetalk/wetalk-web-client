@@ -158,6 +158,10 @@ export default new Vuex.Store({
     },
     async PublishComment(store: ActionContext<State, State>, input: PublishPostInput) {
       return await fetchPost('/comments', undefined, input)
+    },
+    async Logout(store: ActionContext<State, State>) {
+      store.commit('SET_TOKEN', '')
+      store.commit('SET_PROFILE', undefined)
     }
   },
   modules: {
