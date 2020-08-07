@@ -11,9 +11,14 @@ const routes: Array<RouteConfig> = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/joinus',
+    name: 'JoinUs',
+    component: () => import(/* webpackChunkName: "joinUs" */ '../views/JoinUs.vue')
+  },
+  {
+    path: '/write',
+    name: 'WritePost',
+    component: () => import(/* webpackChunkName: "writePost" */ '../views/WritePost.vue')
   },
   {
     path: '/topics/:topicId',

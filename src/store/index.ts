@@ -43,6 +43,7 @@ interface PublishCommentInput {
 
 interface State {
   VUE_APP_NAME: string;
+  VUE_APP_HCAPTCHA_SITEKEY: string;
   token: string;
   profile?: Record<string, any>;
   topics: Array<TopicListPage>;
@@ -56,6 +57,7 @@ interface State {
 export default new Vuex.Store({
   state: {
     VUE_APP_NAME: process.env.VUE_APP_NAME,
+    VUE_APP_HCAPTCHA_SITEKEY: process.env.VUE_APP_HCAPTCHA_SITEKEY,
     token: localStorage.getItem('__token') || '',
     profile: undefined,
     topics: [],

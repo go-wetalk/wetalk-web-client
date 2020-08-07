@@ -119,7 +119,7 @@
 </template>
 
 <script>
-import "wysiwyg.css";
+import "makefuckingjsgreatagain.css";
 import { mapActions, mapGetters, mapState } from "vuex";
 export default {
   name: "Topic",
