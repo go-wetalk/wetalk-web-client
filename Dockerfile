@@ -6,8 +6,6 @@ COPY . /app
 
 RUN rm -f /app/.env.local
 
-ENV NODE_ENV=production
-
 RUN yarn && yarn lint && yarn build
 
 #####################################
