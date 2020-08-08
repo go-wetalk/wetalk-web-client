@@ -37,6 +37,15 @@ Vue.use(Buefy, {
   }
 })
 
+// 简易元素访问权限控制指令
+Vue.directive('can', function (el, bd) {
+  if (bd.value instanceof Array) {
+    if (store.getters.roles.filter((v: number | string) => bd.value.includes(v)).length === 0) {
+      el.remove()
+    }
+  }
+})
+
 new Vue({
   router,
   store,

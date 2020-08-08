@@ -8,6 +8,12 @@
       </template>
 
       <template slot="end" v-if="profile">
+        <b-navbar-item tag="router-link" :to="{ name: 'Notification' }">
+          <b-icon icon="notification-3-line"></b-icon>
+          <span class="is-hidden-tablet" style="vertical-align: top;"
+            >消息</span
+          >
+        </b-navbar-item>
         <b-navbar-item tag="router-link" :to="{ name: 'WritePost' }">
           写点啥
         </b-navbar-item>

@@ -85,6 +85,9 @@ export default new Vuex.Store({
         return state.comments[state.commentIndex]
       }
       return []
+    },
+    roles(state: State): Array<string> {
+      return state.profile && state.profile.RoleList ? state.profile.RoleList.concat(state.profile.ID) : []
     }
   } as GetterTree<State, State>,
   mutations: {

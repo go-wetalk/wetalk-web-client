@@ -26,6 +26,18 @@
         </b-taglist>
       </div>
     </div>
+    <div
+      v-if="topic"
+      class="card gap-mt-1 has-background-white"
+      v-can="[topic.User.ID, 'mod']"
+    >
+      <div class="card-content">
+        <div class="buttons">
+          <b-button v-can="[topic.User.ID]" type="is-primary">编辑</b-button>
+          <b-button v-can="['mod']" type="is-danger">删除</b-button>
+        </div>
+      </div>
+    </div>
     <section class="section">
       <div class="subtitle is-uppercase">Recently Comments</div>
       <section
