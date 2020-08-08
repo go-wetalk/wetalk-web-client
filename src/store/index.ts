@@ -1,8 +1,13 @@
 import Vue from 'vue'
 import Vuex, { ActionContext, GetterTree } from 'vuex'
-import { fetchGet, fetchPost } from '@/fetch'
+import { fetchGet, fetchPost, fetchDelete } from '@/fetch'
 
 Vue.use(Vuex)
+
+interface Paginate {
+  size: number;
+  page: number;
+}
 
 interface AuthenticateInput {
   username: string;
@@ -165,6 +170,19 @@ export default new Vuex.Store({
     async Logout(store: ActionContext<State, State>) {
       store.commit('SET_TOKEN', '')
       store.commit('SET_PROFILE', undefined)
+    },
+    async FetchUserDetail(store: ActionContext<State, State>, name: string) {
+      return await fetchGet(`/users/${name}`)
+    },
+    async FetchNotification(store: ActionContext<State, State>, input: Paginate) {
+      const q = new URLSearchParams()
+      q.set('p', String(input.page))
+      q.set('s', String(input.size))
+
+      return await fetchGet('/notifications', q)
+    },
+    async MarkNotificationRead(store: ActionContext<State, State>, notifyId: number) {
+      return await fetchDelete(`/notifications/${notifyId}`)
     }
   },
   modules: {

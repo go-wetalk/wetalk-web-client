@@ -26,10 +26,25 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "notification" */ '../views/Notification.vue')
   },
   {
+    path: '/profile',
+    name: 'Profile',
+    component: () => import(/* webpackChunkName: "profile" */ '../views/Profile.vue'),
+  },
+  {
     path: '/topics/:topicId',
     name: 'JoinTopic',
-    component: () => import(/* webpackChunkName: "joinTopic" */ '../views/Topic.vue')
-  }
+    component: () => import(/* webpackChunkName: "joinTopic" */ '../views/Topic.vue'),
+    props: true,
+  },
+  {
+    path: '/users/:name',
+    name: 'UserDetail',
+    component: () => import(/* webpackChunkName: "userDetail" */ '../views/UserDetail.vue'),
+    props: true,
+    meta: {
+      required: true
+    }
+  },
 ]
 
 const router = new VueRouter({

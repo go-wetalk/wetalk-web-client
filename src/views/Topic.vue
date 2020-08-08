@@ -7,7 +7,9 @@
         </h1>
         <div class="card-meta">
           <div class="card-meta-author is-size-5">
-            <router-link :to="{ path: '/users/' + topic.User.Name }">
+            <router-link
+              :to="{ name: 'UserDetail', params: { name: topic.User.Name } }"
+            >
               {{ topic.User.Name }}
             </router-link>
           </div>
@@ -61,7 +63,9 @@
           <div class="level is-mobile has-text-justified">
             <div class="level-left">
               <div class="level-item">
-                <router-link :to="{ path: '/users/' + com.User.Name }">
+                <router-link
+                  :to="{ name: 'UserDetail', params: { name: com.User.Name } }"
+                >
                   {{ com.User.Name }}
                 </router-link>
               </div>
@@ -135,6 +139,9 @@ import "makefuckingjsgreatagain.css";
 import { mapActions, mapGetters, mapState } from "vuex";
 export default {
   name: "Topic",
+  props: {
+    topicId: [String, Number],
+  },
   data() {
     return {
       topic: undefined,
@@ -154,7 +161,7 @@ export default {
     ...mapGetters(["isLoggedIn"]),
   },
   created() {
-    const topicId = parseInt(this.$route.params.topicId);
+    const topicId = parseInt(this.topicId);
     this.FetchTopic(topicId).then((data) => {
       this.topic = data;
       this.formData.topicId = topicId;

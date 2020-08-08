@@ -135,7 +135,7 @@ export default {
     onLogin() {
       this.Login(this.formData)
         .then(() => {
-          this.$router.replace({ name: "Home" });
+          this.authenticated();
         })
         .catch((e) => {
           this.$buefy.toast.open({
@@ -153,7 +153,7 @@ export default {
       }
       this.Register(this.formData)
         .then(() => {
-          this.$router.replace({ name: "Home" });
+          this.authenticated();
         })
         .catch((e) => {
           this.$buefy.toast.open({
@@ -165,6 +165,10 @@ export default {
     onHCaptchaVerify(response) {
       this.hCaptchaVerified = true;
       this.formData.captcha = response;
+    },
+    authenticated() {
+      const redirect = this.$route.query.redirect;
+      this.$router.replace(redirect ? { path: redirect } : { name: "Home" });
     },
   },
 };

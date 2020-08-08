@@ -23,7 +23,7 @@ export default async function _fetch(route: string, method: methods, query?: URL
         h.set('Authorization', store.getters.authToken)
     }
 
-    const resp = await fetch(`${process.env.VUE_APP_ENDPOINT}${route}?${query ? query.toString() : ''}`, {
+    const resp = await fetch(`${process.env.VUE_APP_ENDPOINT}${route}${query ? '?' + query.toString() : ''}`, {
         method,
         headers: h,
         body: body ? JSON.stringify(body) : undefined
@@ -57,4 +57,8 @@ export async function fetchGet(route: string, query?: URLSearchParams) {
 
 export async function fetchPost(route: string, query?: URLSearchParams, body?: Record<string, any>) {
     return await _fetch(route, methods.POST, query, body)
+}
+
+export async function fetchDelete(route: string) {
+    return await _fetch(route, methods.DELETE)
 }

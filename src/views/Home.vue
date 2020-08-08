@@ -27,7 +27,12 @@
               <div class="level-left">
                 <div class="level-item">
                   <sub>
-                    <router-link :to="{ path: '/users/' + topic.User.Name }">
+                    <router-link
+                      :to="{
+                        name: 'UserDetail',
+                        params: { name: topic.User.Name },
+                      }"
+                    >
                       {{ topic.User.Name }}
                     </router-link>
                   </sub>
@@ -37,7 +42,12 @@
                 </div>
                 <div class="level-item" v-if="topic.LastComment">
                   <sub>
-                    <router-link :to="'/users/' + topic.LastComment.User.Name">
+                    <router-link
+                      :to="{
+                        name: 'UserDetail',
+                        params: { name: topic.LastComment.User.Name },
+                      }"
+                    >
                       {{ topic.LastComment.User.Name }}
                     </router-link>
                   </sub>

@@ -46,6 +46,15 @@ Vue.directive('can', function (el, bd) {
   }
 })
 
+// 路由权限验证
+router.beforeEach((to, from, next) => {
+  if (to.meta.required && !store.getters.isLoggedIn) { // 要求登录态才能访问，且又未登录
+    return next({ name: 'JoinUs', query: { redirect: to.fullPath } })
+  }
+
+  return next()
+})
+
 new Vue({
   router,
   store,

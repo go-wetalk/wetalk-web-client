@@ -9,7 +9,11 @@
 
       <template slot="end" v-if="profile">
         <b-navbar-item tag="router-link" :to="{ name: 'Notification' }">
-          <b-icon icon="notification-3-line"></b-icon>
+          <b-icon
+            v-if="profile.UnreadNotify > 0"
+            icon="notification-3-fill"
+          ></b-icon>
+          <b-icon v-else icon="notification-3-line"></b-icon>
           <span class="is-hidden-tablet" style="vertical-align: top;"
             >消息</span
           >
@@ -18,7 +22,7 @@
           写点啥
         </b-navbar-item>
         <b-navbar-dropdown :label="profile.Name">
-          <b-navbar-item tag="router-link" :to="'/users/' + profile.Name">
+          <b-navbar-item tag="router-link" :to="{ name: 'Profile' }">
             个人中心
           </b-navbar-item>
           <b-navbar-item tag="div" @click="onLogout">注销</b-navbar-item>
@@ -41,7 +45,7 @@
 
     <footer class="footer gap-mt-1">
       <div class="content has-text-centered">
-        <strong>奋斗社 devto.icu</strong>
+        <strong>{{ VUE_APP_NAME }}</strong>
         <br />
         版权所有，盗版必杀你🐎
       </div>
@@ -171,8 +175,17 @@ body {
   .gaparound {
     margin: 1rem;
   }
+  .gapless {
+    margin: 0;
+  }
+  .gap-mt-0 {
+    margin-top: 0;
+  }
   .gap-mt-1 {
     margin-top: 1rem;
+  }
+  .gap-mb-0 {
+    margin-bottom: 0;
   }
   .gap-mb-1 {
     margin-bottom: 1rem;
