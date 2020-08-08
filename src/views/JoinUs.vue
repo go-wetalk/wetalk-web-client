@@ -125,7 +125,10 @@ export default {
     };
   },
   computed: {
-    ...mapState(["VUE_APP_HCAPTCHA_SITEKEY"]),
+    ...mapState(["VUE_APP_HCAPTCHA_SITEKEY", "VUE_APP_NAME"]),
+  },
+  created() {
+    document.title = `加入我们 - ${this.VUE_APP_NAME}`;
   },
   methods: {
     ...mapActions(["Login", "Register"]),

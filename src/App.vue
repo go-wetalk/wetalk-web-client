@@ -76,7 +76,9 @@ export default {
           type: "is-success",
           message: "已注销登录",
         });
-        this.$router.push({ name: "Home" });
+        if (this.$route.name !== "Home") {
+          this.$router.replace({ name: "Home" });
+        }
       });
     },
   },

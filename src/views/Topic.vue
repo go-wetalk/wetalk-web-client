@@ -150,7 +150,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["profile"]),
+    ...mapState(["profile", "VUE_APP_NAME"]),
     ...mapGetters(["isLoggedIn"]),
   },
   created() {
@@ -159,6 +159,7 @@ export default {
       this.topic = data;
       this.formData.topicId = topicId;
       this.onChangePage(this.commentPage);
+      document.title = `${this.topic.Title} - ${this.VUE_APP_NAME}`;
     });
   },
   methods: {

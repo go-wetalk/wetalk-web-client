@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
   name: "WritePost",
   data() {
@@ -58,6 +58,12 @@ export default {
         tags: [],
       },
     };
+  },
+  computed: {
+    ...mapState(["VUE_APP_NAME"]),
+  },
+  created() {
+    document.title = `写作 - ${this.VUE_APP_NAME}`;
   },
   methods: {
     ...mapActions(["Publish"]),

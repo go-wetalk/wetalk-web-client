@@ -21,6 +21,11 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "writePost" */ '../views/WritePost.vue')
   },
   {
+    path: '/notification',
+    name: 'Notification',
+    component: () => import(/* webpackChunkName: "notification" */ '../views/Notification.vue')
+  },
+  {
     path: '/topics/:topicId',
     name: 'JoinTopic',
     component: () => import(/* webpackChunkName: "joinTopic" */ '../views/Topic.vue')
