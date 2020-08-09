@@ -25,7 +25,7 @@
           <b-navbar-item tag="router-link" :to="{ name: 'Profile' }">
             个人中心
           </b-navbar-item>
-          <b-navbar-item tag="div" @click="onLogout">注销</b-navbar-item>
+          <b-navbar-item tag="a" @click="onLogout">注销</b-navbar-item>
         </b-navbar-dropdown>
       </template>
       <template slot="end" v-else>
@@ -137,6 +137,7 @@ $colors: (
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
+@import "~bulma-timeline";
 
 [v-cloak] {
   display: none;
