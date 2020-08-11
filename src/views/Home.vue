@@ -94,7 +94,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
   name: "Home",
   data() {
@@ -105,7 +105,12 @@ export default {
       topicPageData: [],
     };
   },
+  computed: {
+    ...mapState(["VUE_APP_NAME"]),
+  },
   created() {
+    document.title = `${this.VUE_APP_NAME}`;
+
     this.onChangePage(this.currentPageNumber);
   },
   methods: {
