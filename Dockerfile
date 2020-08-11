@@ -2,11 +2,15 @@ FROM node:14.7-alpine3.12 as rushb
 
 WORKDIR /app
 
+COPY package.json yarn.lock /app/
+
+RUN yarn
+
 COPY . /app
 
 RUN rm -f /app/.env.local
 
-RUN yarn && yarn lint && yarn build
+RUN yarn lint && yarn build
 
 #####################################
 
