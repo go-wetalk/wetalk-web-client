@@ -1,6 +1,6 @@
 <template>
   <div class="container fix-margin-collapse" v-if="topic">
-    <div v-if="topic" class="card gap-mt-1 has-background-white">
+    <div v-if="topic" class="card gap-mt-1 has-background-white is-shadowless">
       <div class="card-head">
         <h1 class="title">
           {{ topic.Title }}
@@ -30,23 +30,25 @@
     </div>
     <div
       v-if="topic"
-      class="card gap-mt-1 has-background-white"
+      class="card gap-mt-1 has-background-white is-shadowless"
       v-can="[topic.User.ID, 'mod']"
     >
       <div class="card-content">
         <div class="buttons">
-          <b-button v-can="[topic.User.ID]" type="is-primary">编辑</b-button>
-          <b-button v-can="['mod']" type="is-danger">删除</b-button>
+          <b-button v-can="[topic.User.ID]" type="is-primary is-small"
+            >编辑</b-button
+          >
+          <b-button v-can="['mod']" type="is-danger is-small">删除</b-button>
         </div>
       </div>
     </div>
     <section class="section">
-      <div class="subtitle is-uppercase">Recently Comments</div>
+      <div class="subtitle is-uppercase">近期评论</div>
       <section
         class="section has-background-white-bis has-text-centered"
         v-if="comments.length === 0"
       >
-        <strong>暂无评论</strong>
+        <small>暂无评论</small>
       </section>
       <article
         class="comment media has-background-white"
@@ -103,11 +105,17 @@
       </div>
     </section>
     <section class="section" v-if="profile">
-      <div class="subtitle is-uppercase">Write Comment</div>
+      <div class="subtitle is-uppercase">发表评论</div>
       <article class="media">
         <figure class="media-left is-hidden-mobile">
           <p class="image is-64x64">
             <img :src="profile.Logo" />
+          </p>
+          <p class="has-text-centered">
+            <router-link
+              :to="{ name: 'UserDetail', params: { name: profile.Name } }"
+              >{{ profile.Name }}</router-link
+            >
           </p>
         </figure>
         <div class="media-content">
@@ -124,7 +132,7 @@
           <nav class="level">
             <div class="level-left">
               <div class="level-item">
-                <a class="button is-info" @click="onSubmit()">Submit</a>
+                <a class="button is-info" @click="onSubmit()">发表</a>
               </div>
             </div>
           </nav>

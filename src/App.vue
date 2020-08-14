@@ -19,7 +19,8 @@
           >
         </b-navbar-item>
         <b-navbar-item tag="router-link" :to="{ name: 'WritePost' }">
-          写点啥
+          <b-icon icon="text" class="is-hidden-tablet"></b-icon>
+          <span style="vertical-align: top;">写点啥</span>
         </b-navbar-item>
         <b-navbar-dropdown :label="profile.Name">
           <b-navbar-item tag="router-link" :to="{ name: 'Profile' }">
@@ -200,6 +201,9 @@ body {
   }
   .footer {
     padding: 3rem 1.5rem;
+  }
+  .is-hidden-corner {
+    border-radius: 10%;
   }
 }
 </style>

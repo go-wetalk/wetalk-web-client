@@ -18,17 +18,26 @@ const routes: Array<RouteConfig> = [
   {
     path: '/write',
     name: 'WritePost',
-    component: () => import(/* webpackChunkName: "writePost" */ '../views/WritePost.vue')
+    component: () => import(/* webpackChunkName: "writePost" */ '../views/WritePost.vue'),
+    meta: {
+      required: true
+    }
   },
   {
     path: '/notification',
     name: 'Notification',
-    component: () => import(/* webpackChunkName: "notification" */ '../views/Notification.vue')
+    component: () => import(/* webpackChunkName: "notification" */ '../views/Notification.vue'),
+    meta: {
+      required: true
+    }
   },
   {
     path: '/profile',
     name: 'Profile',
     component: () => import(/* webpackChunkName: "profile" */ '../views/Profile.vue'),
+    meta: {
+      required: true
+    }
   },
   {
     path: '/topics/:topicId',

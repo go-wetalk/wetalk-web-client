@@ -1,6 +1,9 @@
 <template>
   <div class="container fix-margin-collapse">
-    <div class="card has-media-stack gap-mt-1" v-if="topicPageData.length > 0">
+    <div
+      class="card has-media-stack is-shadowless gap-mt-1"
+      v-if="topicPageData.length > 0"
+    >
       <div class="card-header">
         <div class="card-header-title">主题列表</div>
       </div>
@@ -10,9 +13,9 @@
           v-for="topic in topicPageData"
           :key="topic.ID"
         >
-          <figure class="media-left is-hidden-mobile">
+          <figure class="media-left">
             <p class="image is-48x48">
-              <img :src="topic.User.Logo" />
+              <img :src="topic.User.Logo" class="is-hidden-corner" />
             </p>
           </figure>
           <div class="media-content">
@@ -70,6 +73,31 @@
                       {{ tag }}
                     </b-tag>
                   </b-taglist>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media has-background-white" v-if="false">
+          <figure class="media-left is-hidden-mobile">
+            <p class="image is-48x48">
+              <b-skeleton width="48px" height="48px"></b-skeleton>
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <b-skeleton active></b-skeleton>
+            </div>
+            <div class="level is-mobile">
+              <div class="level-left">
+                <div class="level-item">
+                  <b-skeleton width="8rem"></b-skeleton>
+                </div>
+              </div>
+              <div class="level-right is-hidden-mobile">
+                <div class="level-item">
+                  <b-skeleton width="4rem"></b-skeleton>
                 </div>
               </div>
             </div>
