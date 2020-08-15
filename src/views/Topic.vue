@@ -43,7 +43,7 @@
       </div>
     </div>
     <section class="section">
-      <div class="subtitle is-uppercase">近期评论</div>
+      <div class="subtitle">近期评论</div>
       <section
         class="section has-background-white-bis has-text-centered"
         v-if="comments.length === 0"
@@ -58,7 +58,7 @@
       >
         <figure class="media-left is-hidden-mobile">
           <p class="image is-64x64">
-            <img :src="com.User.Logo" />
+            <img :src="com.User.Logo" class="is-hidden-corner" />
           </p>
         </figure>
         <div class="media-content">
@@ -105,11 +105,11 @@
       </div>
     </section>
     <section class="section" v-if="profile">
-      <div class="subtitle is-uppercase">发表评论</div>
+      <div class="subtitle">发表评论</div>
       <article class="media">
         <figure class="media-left is-hidden-mobile">
           <p class="image is-64x64">
-            <img :src="profile.Logo" />
+            <img :src="profile.Logo" class="is-hidden-corner" />
           </p>
           <p class="has-text-centered">
             <router-link
@@ -234,6 +234,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.section {
+  padding: 3rem 0;
+}
 .section + .section {
   padding-top: 0;
 }

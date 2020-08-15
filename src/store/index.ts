@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex, { ActionContext, GetterTree } from 'vuex'
-import { fetchGet, fetchPost, fetchDelete } from '@/fetch'
+import { fetchGet, fetchPost, fetchDelete, fetchPut, fetchPutWithFile } from '@/fetch'
 
 Vue.use(Vuex)
 
@@ -183,6 +183,21 @@ export default new Vuex.Store({
     },
     async MarkNotificationRead(store: ActionContext<State, State>, notifyId: number) {
       return await fetchDelete(`/notifications/${notifyId}`)
+    },
+    async FetchProfile(store: ActionContext<State, State>) {
+      return await fetchGet('/profile')
+    },
+    async UpdateProfileLogo(store: ActionContext<State, State>, f: File) {
+      return await fetchPutWithFile('/profile/logo', 'logo', f)
+    },
+    async UpdateProfileAddress(store: ActionContext<State, State>, input: any) {
+      return await fetchPut('/profile/address', input)
+    },
+    async UpdateProfileSocial(store: ActionContext<State, State>, input: any) {
+      return await fetchPut('/profile/social', input)
+    },
+    async UpdateProfilePassword(store: ActionContext<State, State>, input: any) {
+      return await fetchPut('/profile/password', input)
     }
   },
   modules: {

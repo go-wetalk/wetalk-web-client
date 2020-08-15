@@ -26,6 +26,9 @@
           <b-navbar-item tag="router-link" :to="{ name: 'Profile' }">
             个人中心
           </b-navbar-item>
+          <b-navbar-item tag="router-link" :to="{ name: 'Settings' }">
+            设置
+          </b-navbar-item>
           <b-navbar-item tag="a" @click="onLogout">注销</b-navbar-item>
         </b-navbar-dropdown>
       </template>
@@ -139,6 +142,7 @@ $colors: (
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
 @import "~bulma-timeline";
+@import "~@creativebulma/bulma-divider";
 
 [v-cloak] {
   display: none;
@@ -185,6 +189,9 @@ body {
   }
   .gap-mt-1 {
     margin-top: 1rem;
+  }
+  .gap-mt-3 {
+    margin-top: 3rem;
   }
   .gap-mb-0 {
     margin-bottom: 0;

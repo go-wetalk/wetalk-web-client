@@ -9,6 +9,7 @@
     "generate": "node_modules/.bin/vue-asset-generate -a src/assets/logo.png -o public/img/icons"
   },
   "dependencies": {
+    "@creativebulma/bulma-divider": "^1.1.0",
     "@hcaptcha/vue-hcaptcha": "^0.2.2",
     "buefy": "^0.8.20",
     "bulma-timeline": "^3.0.4",

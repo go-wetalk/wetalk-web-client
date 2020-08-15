@@ -40,6 +40,14 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
+    path: '/settings',
+    name: 'Settings',
+    component: () => import(/* webpackChunkName: "settings" */ '../views/Settings.vue'),
+    meta: {
+      required: true
+    }
+  },
+  {
     path: '/topics/:topicId',
     name: 'JoinTopic',
     component: () => import(/* webpackChunkName: "joinTopic" */ '../views/Topic.vue'),
