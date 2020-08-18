@@ -97,47 +97,6 @@ export default {
 // Import Bulma's core
 @import "~bulma/sass/utilities/_all";
 
-// Set your colors
-
-// $colors: (
-//   "white": (
-//     $white,
-//     $black,
-//   ),
-//   "black": (
-//     $black,
-//     $white,
-//   ),
-//   "light": (
-//     $light,
-//     $light-invert,
-//   ),
-//   "dark": (
-//     $dark,
-//     $dark-invert,
-//   ),
-//   "primary": (
-//     $primary,
-//     $primary-invert,
-//   ),
-//   "info": (
-//     $info,
-//     $info-invert,
-//   ),
-//   "success": (
-//     $success,
-//     $success-invert,
-//   ),
-//   "warning": (
-//     $warning,
-//     $warning-invert,
-//   ),
-//   "danger": (
-//     $danger,
-//     $danger-invert,
-//   ),
-// );
-
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
