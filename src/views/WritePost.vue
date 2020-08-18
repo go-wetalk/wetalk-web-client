@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="card gap-mt-1">
+    <div class="card mt-4">
       <header class="card-header">
         <p class="card-header-title">咖啡厅·思考·记录</p>
       </header>

@@ -1,6 +1,6 @@
 <template>
   <div class="container fix-margin-collapse" v-if="anyone">
-    <div class="columns gap-mt-1 has-background-white">
+    <div class="columns mt-4 has-background-white">
       <div class="column">
         <div class="level">
           <div class="level-item">
@@ -18,9 +18,9 @@
         </div>
       </div>
     </div>
-    <div class="columns gap-mt-1">
+    <div class="columns mt-4">
       <div class="column">
-        <div class="card is-shadowless">
+        <div class="card">
           <div class="card-header">
             <div class="card-header-title">近期主题</div>
           </div>
@@ -28,7 +28,7 @@
         </div>
       </div>
       <div class="column">
-        <div class="card is-shadowless">
+        <div class="card">
           <div class="card-header">
             <div class="card-header-title">近期评论</div>
           </div>

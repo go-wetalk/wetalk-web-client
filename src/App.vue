@@ -47,7 +47,7 @@
       <router-view />
     </transition>
 
-    <footer class="footer gap-mt-1">
+    <footer class="footer mt-4">
       <div class="content has-text-centered">
         <strong>{{ VUE_APP_NAME }}</strong>
         <br />
@@ -99,44 +99,44 @@ export default {
 
 // Set your colors
 
-$colors: (
-  "white": (
-    $white,
-    $black,
-  ),
-  "black": (
-    $black,
-    $white,
-  ),
-  "light": (
-    $light,
-    $light-invert,
-  ),
-  "dark": (
-    $dark,
-    $dark-invert,
-  ),
-  "primary": (
-    $primary,
-    $primary-invert,
-  ),
-  "info": (
-    $info,
-    $info-invert,
-  ),
-  "success": (
-    $success,
-    $success-invert,
-  ),
-  "warning": (
-    $warning,
-    $warning-invert,
-  ),
-  "danger": (
-    $danger,
-    $danger-invert,
-  ),
-);
+// $colors: (
+//   "white": (
+//     $white,
+//     $black,
+//   ),
+//   "black": (
+//     $black,
+//     $white,
+//   ),
+//   "light": (
+//     $light,
+//     $light-invert,
+//   ),
+//   "dark": (
+//     $dark,
+//     $dark-invert,
+//   ),
+//   "primary": (
+//     $primary,
+//     $primary-invert,
+//   ),
+//   "info": (
+//     $info,
+//     $info-invert,
+//   ),
+//   "success": (
+//     $success,
+//     $success-invert,
+//   ),
+//   "warning": (
+//     $warning,
+//     $warning-invert,
+//   ),
+//   "danger": (
+//     $danger,
+//     $danger-invert,
+//   ),
+// );
 
 // Import Bulma and Buefy styles
 @import "~bulma";
@@ -175,30 +175,6 @@ body {
   display: flex;
   flex-direction: column;
 
-  .username {
-    margin-left: 1rem;
-  }
-  .gaparound {
-    margin: 1rem;
-  }
-  .gapless {
-    margin: 0;
-  }
-  .gap-mt-0 {
-    margin-top: 0;
-  }
-  .gap-mt-1 {
-    margin-top: 1rem;
-  }
-  .gap-mt-3 {
-    margin-top: 3rem;
-  }
-  .gap-mb-0 {
-    margin-bottom: 0;
-  }
-  .gap-mb-1 {
-    margin-bottom: 1rem;
-  }
   .container.fix-margin-collapse {
     margin-top: -1px;
     padding-top: 1px;

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="columns is-centered gap-mt-1">
+    <div class="columns is-centered mt-4">
       <div class="column is-5" v-if="$route.query.newbie !== 'yes'">
         <div class="card has-backgroud-white">
           <div class="card-header">

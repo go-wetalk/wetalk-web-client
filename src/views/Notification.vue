@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="card is-shadowless gap-mt-1">
+    <div class="card mt-4">
       <div class="card-header">
         <div class="card-header-title">消息</div>
       </div>

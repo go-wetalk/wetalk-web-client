@@ -1,9 +1,6 @@
 <template>
   <div class="container fix-margin-collapse">
-    <div
-      class="card has-media-stack is-shadowless gap-mt-1"
-      v-if="topicPageData.length > 0"
-    >
+    <div class="card has-media-stack mt-4" v-if="topicPageData.length > 0">
       <div class="card-header">
         <div class="card-header-title">主题列表</div>
       </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="container fix-margin-collapse" v-if="topic">
-    <div v-if="topic" class="card gap-mt-1 has-background-white is-shadowless">
+    <div v-if="topic" class="card mt-4 has-background-white">
       <div class="card-head">
         <h1 class="title">
           {{ topic.Title }}
@@ -30,7 +30,7 @@
     </div>
     <div
       v-if="topic"
-      class="card gap-mt-1 has-background-white is-shadowless"
+      class="card mt-4 has-background-white"
       v-can="[topic.User.ID, 'mod']"
     >
       <div class="card-content">
@@ -95,7 +95,7 @@
           <div class="content wysiwyg" v-html="com.Content"></div>
         </div>
       </article>
-      <div class="container gap-mt-1" v-if="commentRowCount > commentPageSize">
+      <div class="container mt-4" v-if="commentRowCount > commentPageSize">
         <b-pagination
           :total="commentRowCount"
           :per-page="commentPageSize"

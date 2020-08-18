@@ -2,7 +2,7 @@
   <div class="container">
     <section class="section" v-if="logo">
       <div class="subtitle">头像</div>
-      <div class="card has-background-white is-shadowless">
+      <div class="card has-background-white">
         <div class="card-content">
           <b-upload accept="image/png,image/jpeg" @input="onUpdateAvatar">
             <p class="image is-64x64">
@@ -11,8 +11,8 @@
           </b-upload>
         </div>
       </div>
-      <div class="subtitle gap-mt-3">隐私信息</div>
-      <div class="card has-background-white is-shadowless">
+      <div class="subtitle mt-6">隐私信息</div>
+      <div class="card has-background-white">
         <div class="card-content">
           <b-field label="国家">
             <b-input v-model="address.country"></b-input>
@@ -31,8 +31,8 @@
           </b-field>
         </div>
       </div>
-      <div class="subtitle gap-mt-3">社交信息</div>
-      <div class="card has-background-white is-shadowless">
+      <div class="subtitle mt-6">社交信息</div>
+      <div class="card has-background-white">
         <div class="card-content">
           <b-field label="站内签名">
             <b-input type="textarea" v-model="social.sign"></b-input>
@@ -42,8 +42,8 @@
           </b-field>
         </div>
       </div>
-      <div class="subtitle gap-mt-3" v-if="false">安全设置</div>
-      <div class="card has-background-white is-shadowless" v-if="false">
+      <div class="subtitle mt-6" v-if="false">安全设置</div>
+      <div class="card has-background-white" v-if="false">
         <div class="card-content">
           <div class="columns">
             <div class="column">
@@ -83,8 +83,8 @@
           </div>
         </div>
       </div>
-      <div class="subtitle gap-mt-3">修改密码</div>
-      <div class="card has-background-white is-shadowless">
+      <div class="subtitle mt-6">修改密码</div>
+      <div class="card has-background-white">
         <div class="card-content">
           <b-field label="原密码">
             <b-input type="password" v-model="password.original"></b-input>
